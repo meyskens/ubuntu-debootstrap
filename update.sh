@@ -31,15 +31,7 @@ get_part() {
 
 latest="$(get_part . latest '')"
 
-repo="$(get_part . repo '')"
-if [ "$repo" ]; then
-	if [[ "$repo" != */* ]]; then
-		user="$(docker info | awk '/^Username:/ { print $2 }')"
-		if [ "$user" ]; then
-			repo="$user/$repo"
-		fi
-	fi
-fi
+repo="meyskens/ubuntu-debootstrap"
 
 for version in "${versions[@]}"; do
 	dir="$(readlink -f "$version")"
