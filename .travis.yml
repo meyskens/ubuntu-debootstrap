@@ -9,6 +9,6 @@ before_install:
     - sudo apt-get -y install docker.io debootstrap qemu-user-static
     - docker login -e="$DOCKER_EMAIL" -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD"
 script:
-    - rm mkimage && ln -s /usr/share/docker.io/contrib/mkimage.sh mkimage.sh
+    - rm mkimage.sh && ln -s /usr/share/docker.io/contrib/mkimage.sh mkimage.sh
     - ./update.sh
     - docker push meyskens/ubuntu-debootstrap
